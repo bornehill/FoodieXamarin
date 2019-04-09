@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FoodieXamarin.Behaviors"
              x:Class="FoodieXamarin.Views.EditRecipePage">
     <ContentPage.Content>
         <TableView Intent="Form" HasUnevenRows="True">
@@ -12,8 +13,16 @@
                                HorizontalTextAlignment="End"/>
                     <EntryCell Label="Cook Time" Text="2 min"
                                HorizontalTextAlignment="End"/>
-                    <EntryCell Label="Number of servings" Text="2"
-                               HorizontalTextAlignment="End"/>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="Number of Servings" VerticalOptions="Center"/>
+                            <Entry Text="2" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End">
+                                <Entry.Behaviors>
+                                    <local:NumericEntryBehavior/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </ViewCell>
                     <SwitchCell Text="Make again?" On="True"/>
                 </TableSection>
                 <TableSection Title="Meal">
