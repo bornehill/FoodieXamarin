@@ -2,13 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FoodieXamarin.Behaviors"
+             xmlns:trigger="clr-namespace:FoodieXamarin.Triggers"
              x:Class="FoodieXamarin.Views.EditRecipePage">
     <ContentPage.Content>
         <TableView Intent="Form" HasUnevenRows="True">
             <TableRoot>
                 <TableSection Title="Info">
-                    <EntryCell Label="Recipe Name" Text="Scrambled Eggs"
-                               HorizontalTextAlignment="End"/>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="15,10,10,10">
+                            <Label Text="Recipe Name" VerticalOptions="Center">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label"
+                                                 Binding="{Binding Source={x:Reference recipeNameEntry}, Path=IsFocused}"
+                                                 Value="True">
+                                        <Setter Property="TextColor" Value="#D32F2F"/>
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                            <Entry x:Name="recipeNameEntry" Text="Scrambled Eggs" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End">
+                                <Entry.Triggers>
+                                    <EventTrigger Event="TextChanged">
+                                        <trigger:RequiredValidationTriggerAction/>
+                                    </EventTrigger>
+                                </Entry.Triggers>
+                            </Entry>
+                        </StackLayout>
+                    </ViewCell>                    
                     <EntryCell Label="Prep. Time" Text="5 min"
                                HorizontalTextAlignment="End"/>
                     <EntryCell Label="Cook Time" Text="2 min"
@@ -52,7 +71,16 @@
                 <TableSection Title="Directions">
                     <ViewCell>
                         <ContentView HeightRequest="200" Margin="15,10,10,10">
-                            <Editor Text="Break eggs, mix in milk, pour mixutre into skillet, put heat on"/>
+                            <Editor Text="Break eggs, mix in milk, pour mixutre into skillet, put heat on">
+                                <Editor.Triggers>
+                                    <Trigger TargetType="Editor" Property="IsFocused" Value="True">
+                                        <Setter Property="BackgroundColor" Value="#FFF9C4"/>
+                                    </Trigger>
+                                    <Trigger TargetType="Editor" Property="IsFocused" Value="True">
+                                        <Setter Property="FontAttributes" Value="Bold"/>
+                                    </Trigger>                                    
+                                </Editor.Triggers>
+                            </Editor>
                         </ContentView>
                     </ViewCell>                    
                 </TableSection>                
