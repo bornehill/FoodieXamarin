@@ -5,10 +5,14 @@
              x:Class="FoodieXamarin.Views.RecipeListPage"
              Title="Recipes">
     <ContentPage.Content>
-        <ListView ItemsSource="{x:Static local:RecipeData.AllRecipesGrouped}"
-                  GroupDisplayBinding="{Binding Title}"
+        <ListView ItemsSource="{x:Static local:RecipeData.AllRecipesListGrouped}"
                   GroupShortNameBinding="{Binding ShortName}"
                   IsGroupingEnabled="True">
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" TextColor="Red"/>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding RecipeName}" Detail="{Binding MealType}"/>

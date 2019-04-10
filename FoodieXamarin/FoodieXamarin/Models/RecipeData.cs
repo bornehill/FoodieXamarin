@@ -92,5 +92,34 @@ namespace FoodieXamarin.Models
                 return allRecipesGrouped;
             }
         }
+
+        #region Generic grouping
+        static List<ListViewGrouping<Recipe>> allRecipesListGrouped;
+        public static List<ListViewGrouping<Recipe>> AllRecipesListGrouped
+        {
+            get
+            {
+                if (allRecipesGrouped == null)
+                {
+                    var easyGrouping = new ListViewGrouping<Recipe>("Easy", "E");
+                    easyGrouping.AddRange(RecipeData.AllRecipes.Where(r => r.Difficulty.Equals(DifficultyType.Easy.ToString())));
+
+                    var mediumGrouping = new ListViewGrouping<Recipe>("Medium", "M");
+                    mediumGrouping.AddRange(RecipeData.AllRecipes.Where(r => r.Difficulty.Equals(DifficultyType.Medium.ToString())));
+
+                    var hardGrouping = new ListViewGrouping<Recipe>("Hard", "H");
+                    hardGrouping.AddRange(RecipeData.AllRecipes.Where(r => r.Difficulty.Equals(DifficultyType.Hard.ToString())));
+
+                    allRecipesListGrouped = new List<ListViewGrouping<Recipe>>
+                    {
+                        easyGrouping,
+                        mediumGrouping,
+                        hardGrouping
+                    };
+                }
+                return allRecipesListGrouped;
+            }
+        }
+        #endregion
     }
 }
