@@ -30,7 +30,8 @@ namespace FoodieXamarin.Models
                             Ingredients="1 tablespoon white vinegar"+Environment.NewLine+
                             "8 large eggs\nHollandaise Sauce"+Environment.NewLine+
                             "1/2 pound (16 slices) Canadian bacon"+Environment.NewLine+
-                            "4 English muffins, split in half, toasted"
+                            "4 English muffins, split in half, toasted",
+                            ImageName = "eggsBenedict.png"
                         },
                         new Recipe
                         {
@@ -42,7 +43,8 @@ namespace FoodieXamarin.Models
                             MealType=MealType.BreakFast.ToString(),
                             Difficulty=DifficultyType.Medium.ToString(),
                             Directions="Preheat oven to 350 degrees. \n\nCombine dry ingredients",
-                            Ingredients="1 a cup whole wheat white flour\n1 tbsp baking powder"
+                            Ingredients="1 a cup whole wheat white flour\n1 tbsp baking powder",
+                            ImageName = "muffinBlueberry.png"
                         },
                         new Recipe
                         {
@@ -54,7 +56,8 @@ namespace FoodieXamarin.Models
                             MealType=MealType.Lunch.ToString(),
                             Difficulty=DifficultyType.Medium.ToString(),
                             Directions="1. Toaste meat",
-                            Ingredients="1 burguer meat"
+                            Ingredients="1 burguer meat",
+                            ImageName = "burger.png"
                         }
                     };
                 }

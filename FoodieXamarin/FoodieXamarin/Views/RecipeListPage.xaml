@@ -2,20 +2,73 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FoodieXamarin.Models"
+             xmlns:converters="clr-namespace:FoodieXamarin.Converters;assembly=FoodieXamarin"
              x:Class="FoodieXamarin.Views.RecipeListPage"
              Title="Recipes">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:RecipeToImageValueConverter x:Key="imageConvert" Assembly="FoodieXamarin.Images"/>
+            <converters:BoolToValueConverter x:Key="colorConverter" x:TypeArguments="Color"
+                                             TrueValue="#16CA86" FalseValue="#FF4081"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ListView ItemsSource="{x:Static local:RecipeData.AllRecipesListGrouped}"
-                  GroupShortNameBinding="{Binding ShortName}"
-                  IsGroupingEnabled="True">
-            <ListView.GroupHeaderTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Title}" TextColor="Red"/>
-                </DataTemplate>
-            </ListView.GroupHeaderTemplate>
+                  GroupDisplayBinding="{Binding Title}"
+                  IsGroupingEnabled="True"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding RecipeName}" Detail="{Binding MealType}"/>
+                    <ViewCell Height="200">
+                        <ContentView Margin="10">
+                            <Grid RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <BoxView Color="#3F51B5"
+                                         Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+                                <Label Text="{Binding MealType}" TextColor="White"
+                                       FontSize="Large" VerticalTextAlignment="Center" Margin="10,0,0,0"
+                                       Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+                                <Image BackgroundColor="Gray" Aspect="AspectFill"
+                                       Source="{Binding ImageName, Converter={StaticResource imageConvert}}"
+                                       Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                                <BoxView Color="#757575" Opacity=".5"
+                                         Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                                <Label Text="{Binding RecipeName}" TextColor="White"
+                                       FontSize="28" FontAttributes="Bold" Margin="30,5,0,0"
+                                       Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                                <BoxView Color="{Binding WillMakeAgain, Converter={StaticResource colorConverter}}"
+                                         Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
+                                <BoxView Color="#F6F6F6" Opacity="25"
+                                         Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+                                <Label Text="{Binding PreparationTime, StringFormat='{0} prep'}" TextColor="#757575"
+                                       FontSize="Small" Margin="10,5,0,0"
+                                       Grid.Row="3" Grid.Column="0"/>
+                                <Label Text="{Binding CookTime, StringFormat='{0} cook'}" Margin="0,5,0,0" 
+								    FontSize="Small" TextColor="#757575"
+								    Grid.Row="3" Grid.Column="1" />
+
+                                <Label Text="{Binding NumberOfServings, StringFormat='serves {0}'}" Margin="0,5,0,0" 
+								    FontSize="Small" TextColor="#757575"
+								    Grid.Row="3" Grid.Column="2" />
+
+                                <Label Text="View Recipe >" Font="Micro" HorizontalTextAlignment="End" 
+								    Margin="0,5,10,0" TextColor="#4CAF50" FontAttributes="Bold"
+								    Grid.Row="4" Grid.Column="2" />
+                            </Grid>
+                        </ContentView>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

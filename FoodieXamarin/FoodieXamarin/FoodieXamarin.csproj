@@ -10,6 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Images\burger.jpg" />
+    <EmbeddedResource Include="Images\burger.png" />
+    <EmbeddedResource Include="Images\eggsBenedict.jpg" />
+    <EmbeddedResource Include="Images\eggsBenedict.png" />
+    <EmbeddedResource Include="Images\muffinBlueberry.jpg" />
+    <EmbeddedResource Include="Images\muffinBlueberry.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.293080" />
   </ItemGroup>
 
@@ -30,6 +39,9 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Views\EditRecipePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\RecipeListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
