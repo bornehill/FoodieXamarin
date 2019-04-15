@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodieXamarin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,19 @@ namespace FoodieXamarin.Views
         {
             //Broandcast a message that the cell should update colors
             MessagingCenter.Send(this, "change");
+        }
+
+        async void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            var recipe = e.SelectedItem as Recipe;
+
+            if (recipe == null)
+                return;
+
+            var detailPage = new RecipeDetailPage(recipe);
+            await Navigation.PushAsync(detailPage);
+
+            recipeList.SelectedItem = null;
         }
     }
 }

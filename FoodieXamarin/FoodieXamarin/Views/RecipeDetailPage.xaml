@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:FoodieXamarin.Models"
              xmlns:converters="clr-namespace:FoodieXamarin.Converters;assembly=FoodieXamarin"
              x:Class="FoodieXamarin.Views.RecipeDetailPage"
-             BindingContext="{x:Static local:RecipeData.SingleRecipe}"
 		     Title="Details">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -95,4 +94,7 @@
             <Button Text="Make Again!"/>
         </StackLayout>
     </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" Clicked="EditRecipe_Clicked" />
+    </ContentPage.ToolbarItems>
 </ContentPage>

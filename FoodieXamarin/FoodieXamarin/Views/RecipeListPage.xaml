@@ -11,12 +11,14 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <ListView ItemsSource="{x:Static local:RecipeData.AllRecipesListGrouped}"
+        <ListView x:Name="recipeList"
+                  ItemsSource="{x:Static local:RecipeData.AllRecipesListGrouped}"
                   GroupDisplayBinding="{Binding Title}"
                   IsGroupingEnabled="True"
                   SeparatorVisibility="None"
                   HasUnevenRows="True"
-                  ItemTemplate="{StaticResource recipeTemplateSel}"/>
+                  ItemTemplate="{StaticResource recipeTemplateSel}"
+                  ItemSelected="Handle_ItemSelected"/>
 
     </ContentPage.Content>
     <ContentPage.ToolbarItems>
