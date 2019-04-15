@@ -5,7 +5,7 @@
     <ViewCell.Height>
         <OnPlatform x:TypeArguments="x:Double" iOS="90" Android="95"/>
     </ViewCell.Height>
-    <ContentView Margin="10" BackgroundColor="#F6F6F6">
+    <ContentView Style="{StaticResource overAllCellContentStyle}">
         <Grid ColumnSpacing="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15"/>
@@ -23,10 +23,12 @@
                    Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
             <Label Text="{Binding RecipeName}" FontSize="Medium" FontAttributes="Bold" Margin="5,0,0,0"
                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-            <Label Text="{Binding PreparationTime, StringFormat='Prep: {0}'}" FontSize="Small" Margin="0,5,0,0"
-                   TextColor="#757575" Grid.Row="2" Grid.Column="0"/>
-            <Label Text="{Binding CookTime, StringFormat='Cook: {0}'}" FontSize="Small" Margin="0,5,0,0"
-                   TextColor="#757575" Grid.Row="2" Grid.Column="1"/>
+            <Label Text="{Binding PreparationTime, StringFormat='Prep: {0}'}" 
+                   Margin="10,5,0,0" Style="{StaticResource cellPrepDetailStyle}"
+                   Grid.Row="2" Grid.Column="0"/>
+            <Label Text="{Binding CookTime, StringFormat='Cook: {0}'}" 
+                   Style="{StaticResource cellPrepDetailStyle}"
+                   Grid.Row="2" Grid.Column="1"/>
         </Grid>
     </ContentView>
 </ViewCell>

@@ -4,7 +4,7 @@
              xmlns:converters="clr-namespace:FoodieXamarin.Converters;assembly=FoodieXamarin"
              x:Class="FoodieXamarin.ViewsCell.RecipeCell"
              Height="200">
-    <ContentView Margin="10">
+    <ContentView Style="{StaticResource overAllCellContentStyle}">
         <ContentView.Resources>
             <ResourceDictionary>
                 <converters:RecipeToImageValueConverter x:Key="imageConvert" Assembly="FoodieXamarin.Images"/>
@@ -43,14 +43,14 @@
             <BoxView Color="#F6F6F6" Opacity="25"
                                 Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
             <Label Text="{Binding PreparationTime, StringFormat='{0} prep'}" TextColor="#757575"
-                            FontSize="Small" Margin="10,5,0,0"
+                            Margin="10,5,0,0" Style="{StaticResource cellPrepDetailStyle}"
                             Grid.Row="3" Grid.Column="0"/>
             <Label Text="{Binding CookTime, StringFormat='{0} cook'}" Margin="0,5,0,0" 
-					    FontSize="Small" TextColor="#757575"
+					    Style="{StaticResource cellPrepDetailStyle}"
 					    Grid.Row="3" Grid.Column="1" />
 
             <Label Text="{Binding NumberOfServings, StringFormat='serves {0}'}" Margin="0,5,0,0" 
-					    FontSize="Small" TextColor="#757575"
+					    Style="{StaticResource cellPrepDetailStyle}"
 					    Grid.Row="3" Grid.Column="2" />
 
             <Label Text="View Recipe >" Font="Micro" HorizontalTextAlignment="End" 

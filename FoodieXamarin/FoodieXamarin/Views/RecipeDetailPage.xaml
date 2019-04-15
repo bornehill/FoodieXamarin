@@ -9,16 +9,14 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:RecipeToImageValueConverter x:Key="imageConverter" Assembly="FoodieXamarin.Images" />
-
-            <Style x:Key="prepInfoStyle" TargetType="Label">
-                <Setter Property="HorizontalTextAlignment" Value="Center" />
-                <Setter Property="VerticalTextAlignment" Value="Center" />
-                <Setter Property="TextColor" Value="#FFFFFF" />
-            </Style>
-
             <Style x:Key="centerAlignStyle" TargetType="Label">
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="prepInfoStyle" TargetType="Label"
+                   BasedOn="{StaticResource centerAlignStyle}">
+                <Setter Property="TextColor" Value="#FFFFFF" />
             </Style>
 
             <Style x:Key="microLabelStyle" TargetType="Label">
@@ -94,7 +92,7 @@
 						Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" />
                 </Grid>
             </ScrollView>
-            <Button Text="Make Again!" BorderRadius="10" FontAttributes="Bold" TextColor="#FFFFFF" BackgroundColor="#4CAF50" />
+            <Button Text="Make Again!"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

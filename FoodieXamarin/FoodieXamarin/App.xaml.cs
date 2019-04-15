@@ -12,7 +12,7 @@ namespace FoodieXamarin
         {
             InitializeComponent();
 
-            MainPage = new RecipeDetailPage();
+            MainPage = new RecipeListPage();
         }
 
         protected override void OnStart()
