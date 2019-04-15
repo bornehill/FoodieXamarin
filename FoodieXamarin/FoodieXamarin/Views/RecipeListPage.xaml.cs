@@ -16,5 +16,11 @@ namespace FoodieXamarin.Views
         {
             InitializeComponent();
         }
+
+        void ChangeStyles_Click(object sender, EventArgs e)
+        {
+            //Broandcast a message that the cell should update colors
+            MessagingCenter.Send(this, "change");
+        }
     }
 }
