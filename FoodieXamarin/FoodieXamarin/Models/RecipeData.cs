@@ -127,5 +127,13 @@ namespace FoodieXamarin.Models
             }
         }
         #endregion
+
+        public static Recipe SingleRecipe
+        {
+            get
+            {
+                return AllRecipes.ElementAt(0);
+            }
+        }
     }
 }
