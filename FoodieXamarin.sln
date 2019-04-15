@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieXamarin.Android", "Fo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieXamarin.iOS", "FoodieXamarin\FoodieXamarin.iOS\FoodieXamarin.iOS.csproj", "{A84AAC62-AC3B-4270-A74C-A1E4D1217D6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodieXamarin", "FoodieXamarin\FoodieXamarin\FoodieXamarin.csproj", "{717E21D6-D8E3-4D72-B761-533CED3CC34B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodieXamarin", "FoodieXamarin\FoodieXamarin\FoodieXamarin.csproj", "{717E21D6-D8E3-4D72-B761-533CED3CC34B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

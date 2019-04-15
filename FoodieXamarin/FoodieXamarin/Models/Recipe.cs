@@ -12,5 +12,6 @@
         public string Ingredients { get; set; }
         public string Directions { get; set; }
         public string ImageName { get; set; }
+        public bool IsRecommended { get; set; }
     }
 }

@@ -10,6 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\burger.jpg" />
+    <None Remove="Images\burger.png" />
+    <None Remove="Images\eggsBenedict.jpg" />
+    <None Remove="Images\eggsBenedict.png" />
+    <None Remove="Images\muffinBlueberry.jpg" />
+    <None Remove="Images\muffinBlueberry.png" />
+  </ItemGroup>  
+  
+  <ItemGroup>
     <EmbeddedResource Include="Images\burger.jpg" />
     <EmbeddedResource Include="Images\burger.png" />
     <EmbeddedResource Include="Images\eggsBenedict.jpg" />
@@ -23,6 +32,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="ViewsCell\RecipeCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ViewsCell\RecommendedRecipeCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\EditRecipePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -36,6 +51,12 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ViewsCell\RecipeCell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ViewsCell\RecommendedRecipeCell.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="Views\EditRecipePage.xaml">
